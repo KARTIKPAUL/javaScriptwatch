@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Watch</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            text-align: center;
+            background-color:#222;
+        }
+        h1{
+            color: #0000ff;
+        }
+        .container{
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .info{
+            font-size: 3rem;
+            margin-top: 50px;
+            font-weight: 900;
+        }
+        #date{
+            color: #008000;
+        }
+        #time{
+            color: #e51ee5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Watch</h1>
+        <div id="date" class="info"></div>
+        <div id="time" class="info"></div>
+    </div>
+
+    <script>
+
+        let date = document.getElementById('date');
+
+        let time = document.getElementById('time');
+
+        function updatedTime(){
+            let currentDate = new Date();
+            let year = currentDate.getFullYear();
+            let month = currentDate.getMonth() + 1;
+            let day = currentDate.getDate();
+        
+            let hours = currentDate.getHours();
+            let minutes = currentDate.getMinutes();
+            let seconds = currentDate.getSeconds();
+
+            date.innerHTML = (`Date: ${day}-${month}-${year}`);
+            time.innerHTML = (`Time: ${hours}:${minutes}:${seconds}`);
+        }
+
+        setInterval(updatedTime,1000);
+        
+    </script>
+</body>
+</html>
